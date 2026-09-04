@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600&family=Nunito+Sans:wght@400;600;700&display=swap');
+
+:root {
+  --ink: #263238;
+  --muted: #718096;
+  --paper: #f7f8f5;
+  --card: #ffffff;
+  --accent: #5d8b83;
+  --accent-soft: #dfece8;
+  --shadow: 0 24px 60px rgba(54, 75, 72, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 32px;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(223, 236, 232, 0.9), transparent 28%),
+    radial-gradient(circle at 88% 82%, rgba(242, 231, 212, 0.8), transparent 26%),
+    var(--paper);
+  font-family: 'Nunito Sans', 'Microsoft YaHei', sans-serif;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(93, 139, 131, 0.18);
+  border-radius: 50%;
+}
+
+body::before {
+  top: -74px;
+  right: 14%;
+}
+
+body::after {
+  bottom: -92px;
+  left: 12%;
+}
+
+.profile-card {
+  width: min(100%, 560px);
+  position: relative;
+  padding: 72px 64px 58px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+  animation: rise-in 700ms ease-out both;
+}
+
+.accent-line {
+  width: 48px;
+  height: 4px;
+  margin: 0 auto 30px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+h1 {
+  margin: 0;
+  font-family: 'Noto Serif SC', 'Songti SC', serif;
+  font-size: clamp(32px, 7vw, 48px);
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 1.35;
+}
+
+.subtitle {
+  margin: 18px 0 32px;
+  color: var(--muted);
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.divider {
+  width: 44px;
+  height: 1px;
+  margin: 0 auto 20px;
+  background: var(--accent-soft);
+}
+
+.date {
+  min-height: 20px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.page-footer {
+  position: absolute;
+  bottom: 28px;
+  color: rgba(113, 128, 150, 0.75);
+  font-size: 12px;
+  letter-spacing: 1px;
+  animation: fade-in 900ms 200ms ease-out both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 22px;
+  }
+
+  .profile-card {
+    padding: 56px 28px 46px;
+  }
+
+  .page-footer {
+    bottom: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-card,
+  .page-footer {
+    animation: none;
+  }
+}
